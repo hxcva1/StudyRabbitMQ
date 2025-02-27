@@ -1,5 +1,6 @@
-package com.example.HelloMessageQueue.step0;
+package com.example.HelloMessageQueue.step2;
 
+import org.springframework.amqp.core.AcknowledgeMode;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -43,11 +44,11 @@ public class RabbitMQConfig {
 	 * 	•	Receiver 클래스의 receiveMessage 메서드가 메시지를 수신하여 처리할 수 있도록 설정합니다.
 	 *     RabbitMQ에서 수신된 메시지가 receiver.receiveMessage(String message) 메서드로 전달됩니다.
 	 */
-	public static final String QUEUE_NAME = "helloqueue";
+	public static final String QUEUE_NAME = "WorkQueue";
 
 	@Bean
 	public Queue queue() {
-		return new Queue(QUEUE_NAME, false);
+		return new Queue(QUEUE_NAME, true);
 	}
 
 	@Bean
@@ -62,11 +63,12 @@ public class RabbitMQConfig {
 		container.setConnectionFactory(connectionFactory);
 		container.setQueueNames(QUEUE_NAME);
 		container.setMessageListener(listenerAdapter);
+		container.setAcknowledgeMode(AcknowledgeMode.AUTO);
 		return container;
 	}
 
 	@Bean
-	public MessageListenerAdapter listenerAdapter(Receiver receiver) {
-		return new MessageListenerAdapter(receiver, "receiveMessage");
+	public MessageListenerAdapter listenerAdapter(WorkQueueConsumer workQueueTask) {
+		return new MessageListenerAdapter(workQueueTask, "receiveMessage");
 	}
 }
