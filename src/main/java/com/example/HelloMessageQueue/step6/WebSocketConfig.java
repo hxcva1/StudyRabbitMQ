@@ -1,4 +1,4 @@
-package com.example.HelloMessageQueue.step5;
+package com.example.HelloMessageQueue.step6;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

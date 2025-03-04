@@ -1,8 +1,4 @@
-package com.example.HelloMessageQueue.step5;
-
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.stereotype.Controller;
+package com.example.HelloMessageQueue.step6;
 
 // @Controller
 // public class StompController {

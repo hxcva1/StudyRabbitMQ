@@ -1,7 +1,6 @@
-package com.example.HelloMessageQueue.step5;
+package com.example.HelloMessageQueue.step6;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -20,6 +19,11 @@ public class LogConsumer {
 	@RabbitListener(queues = RabbitMQConfig.INFO_QUEUE)
 	public void consumeInfo(String message) {
 		System.out.println("[INFO]를 받음 : " + message);
+	}
+
+	@RabbitListener(queues = RabbitMQConfig.ALL_LOG_QUEUE)
+	public void consumeAllLog(String message) {
+		System.out.println("[AllLog]를 받음 : " + message);
 	}
 
 }
