@@ -1,4 +1,4 @@
-package com.example.HelloMessageQueue.step4;
+package com.example.HelloMessageQueue.step5;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
