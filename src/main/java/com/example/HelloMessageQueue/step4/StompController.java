@@ -1,4 +1,4 @@
-package com.example.HelloMessageQueue.step3;
+package com.example.HelloMessageQueue.step4;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;

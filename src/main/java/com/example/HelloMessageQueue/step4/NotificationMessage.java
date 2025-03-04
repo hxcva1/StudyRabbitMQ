@@ -1,4 +1,4 @@
-package com.example.HelloMessageQueue.step3;
+package com.example.HelloMessageQueue.step4;
 
 public class NotificationMessage {
 	private String message;
